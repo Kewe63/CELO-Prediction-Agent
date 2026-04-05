@@ -1,4 +1,4 @@
-# CELO Prediction Agent Dashboard
+# CELO Prediction Agent
 
 An AI-powered crypto prediction dashboard with real-time market analysis, **Claude LLM-driven** LONG/SHORT signals, automatic Take Profit / Stop Loss execution, **OpenWallet Standard** support, and **Celo MiniPay** wallet integration. This project is designed to bridge the gap between AI agents and on-chain decentralized predictions.
 
