@@ -1,0 +1,229 @@
+/* ─── MiniPay Wallet Component Styles ───────────────────────────────────────── */
+
+.minipay-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(99, 235, 167, 0.25);
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 360px;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 24px rgba(99, 235, 167, 0.08);
+  font-family: inherit;
+}
+
+.minipay-connect {
+  text-align: center;
+  padding: 32px 24px;
+}
+
+/* ── Logo ──────────────────────────────────────────────────────────────────── */
+.mp-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #63eba7;
+}
+
+/* ── Header ────────────────────────────────────────────────────────────────── */
+.mp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.mp-address {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mp-badge {
+  background: rgba(99, 235, 167, 0.15);
+  color: #63eba7;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+/* ── Balances ──────────────────────────────────────────────────────────────── */
+.mp-balances {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mp-balance-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+  min-width: 70px;
+}
+
+.mp-token-name {
+  font-size: 0.65rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mp-token-amount {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.mp-refresh {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s;
+}
+
+.mp-refresh:hover {
+  color: #63eba7;
+}
+
+/* ── Pay Form ──────────────────────────────────────────────────────────────── */
+.mp-pay-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mp-pay-form h4 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.mp-pay-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.68rem;
+  color: #94a3b8;
+}
+
+.mp-pay-form input,
+.mp-pay-form select {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: #e2e8f0;
+  font-size: 0.75rem;
+  font-family: inherit;
+  width: 100%;
+  transition: border-color 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.mp-pay-form select {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' width%3D'10' height%3D'6'%3E%3Cpath fill%3D'%2364748b' d%3D'M0 0l5 6 5-6z'%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  padding-right: 1.8rem;
+  cursor: pointer;
+}
+
+.mp-pay-form select option {
+  background: #111827;
+  color: #e2e8f0;
+  font-size: 0.75rem;
+}
+
+.mp-pay-form input:focus,
+.mp-pay-form select:focus {
+  outline: none;
+  border-color: rgba(99, 235, 167, 0.45);
+  box-shadow: 0 0 0 3px rgba(99, 235, 167, 0.06);
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────────────── */
+.mp-btn-primary {
+  background: linear-gradient(135deg, #63eba7, #35d07f);
+  color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  margin-top: 4px;
+}
+
+.mp-btn-primary:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.mp-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Status messages ───────────────────────────────────────────────────────── */
+.mp-tx-success {
+  font-size: 0.72rem;
+  color: #63eba7;
+  margin-top: 8px;
+}
+
+.mp-tx-success a {
+  color: #63eba7;
+  text-decoration: underline;
+}
+
+.mp-error {
+  font-size: 0.72rem;
+  color: #f87171;
+  margin-top: 8px;
+}
+
+.mp-desc {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  margin: 12px 0 20px;
+  line-height: 1.5;
+}
+
+.mp-hint {
+  font-size: 0.68rem;
+  color: #475569;
+  margin-top: 12px;
+}
+
+.mp-hint a {
+  color: #63eba7;
+}
+
+/* ── Mobile ────────────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .minipay-card {
+    border-radius: 12px;
+    padding: 16px;
+  }
+}

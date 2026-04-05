@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Lenovo/Desktop/Yeni klasör/**)",
+      "Bash(cp \"C:/Users/Lenovo/Desktop/Yeni klasör/useMiniPay.js\" \"C:/Users/Lenovo/Desktop/OWS-Prediction-Agent-main/src/hooks/useMiniPay.js\")",
+      "Bash(cp \"C:/Users/Lenovo/Desktop/Yeni klasör/MiniPayProvider.jsx\" \"C:/Users/Lenovo/Desktop/OWS-Prediction-Agent-main/src/context/MiniPayProvider.jsx\")",
+      "Bash(cp \"C:/Users/Lenovo/Desktop/Yeni klasör/MiniPayWallet.jsx\" \"C:/Users/Lenovo/Desktop/OWS-Prediction-Agent-main/src/components/MiniPayWallet.jsx\")",
+      "Bash(cp \"C:/Users/Lenovo/Desktop/Yeni klasör/MiniPayWallet.css\" \"C:/Users/Lenovo/Desktop/OWS-Prediction-Agent-main/src/components/MiniPayWallet.css\")",
+      "Bash(cp \"C:/Users/Lenovo/Desktop/Yeni klasör/MiniPayPredictionBet.jsx\" \"C:/Users/Lenovo/Desktop/OWS-Prediction-Agent-main/src/components/MiniPayPredictionBet.jsx\")",
+      "Read(//c/Users/Lenovo/.claude/plans/**)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Lenovo\\.claude\\plans",
+      "C:\\Users\\Lenovo\\Downloads"
+    ]
+  }
+}
