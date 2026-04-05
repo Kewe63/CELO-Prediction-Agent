@@ -212,4 +212,5 @@ npm run build
 | **< 400px** | Extra compact: Full-width spanning for prediction controls |
 
 ---
-*Built bridging Anthropic Claude Intelligence and Celo ecosystem.*
+
+*Built with ❤️ for the Celo ecosystem.*
