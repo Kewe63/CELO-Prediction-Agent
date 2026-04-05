@@ -27,6 +27,15 @@ An AI-powered crypto prediction dashboard with real-time market analysis, **Clau
 
 ---
 
+## 📜 Deployed Network & Contract
+
+The core prediction mechanics, Vault operations, and OpenWallet integrations are managed via our deployed smart contract on the **Celo Mainnet**:
+
+- **Contract Address:** [`0x940332176188C44069Ee902Ab060d6081f811FB9`](https://celoscan.io/address/0x940332176188C44069Ee902Ab060d6081f811FB9)
+- **Network:** Celo Mainnet
+
+---
+
 ## 📂 Project Structure
 
 ```text
