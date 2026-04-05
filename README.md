@@ -69,25 +69,25 @@ The project utilizes a hybrid architecture: A robust React frontend communicatin
 
 ```mermaid
 graph LR
-    subgraph Frontend [React + Vite App]
-        UI[Dashboard & Pages]
-        Hooks[Custom Hooks: useMiniPay / useVault]
-        Services[Services: agentService / llmService]
+    subgraph Frontend ["React + Vite App"]
+        UI["Dashboard & Pages"]
+        Hooks["Custom Hooks: useMiniPay / useVault"]
+        Services["Services: agentService / llmService"]
     end
     
-    subgraph Local Server [Agent Interconnection Node]
-        AS[agent-server.js]
-        OWS[@open-wallet-standard/core]
+    subgraph LocalServer ["Agent Interconnection Node"]
+        AS["agent-server.js"]
+        OWS["@open-wallet-standard/core"]
     end
     
-    subgraph External APIs
-        CG[CoinGecko Free API]
-        CC[CryptoCompare News API]
-        LLM[Anthropic Claude API]
+    subgraph ExternalAPIs ["External APIs"]
+        CG["CoinGecko Free API"]
+        CC["CryptoCompare News API"]
+        LLM["Anthropic Claude API"]
     end
     
     subgraph Blockchain
-        Celo[Celo Network / MiniPay Contracts]
+        Celo["Celo Network / MiniPay Contracts"]
     end
 
     UI --> Hooks
@@ -106,32 +106,32 @@ graph LR
 
 ```mermaid
 graph TD
-    A([User clicks 'Run Analysis']) --> B{Active Modules Match?};
+    A(["User clicks 'Run Analysis'"]) --> B{"Active Modules Match?"};
     
-    B -->|Technical Data| C[CoinGecko OHLC<br/>RSI(14), MA20, MA50, Trend];
-    B -->|Sentiment Data| D[CryptoCompare Headlines<br/>Community Sentiments];
-    B -->|On-chain Data| E[Volume/Market Cap<br/>Distance to ATH];
+    B -->|Technical Data| C["CoinGecko OHLC<br/>RSI(14), MA20, MA50, Trend"];
+    B -->|Sentiment Data| D["CryptoCompare Headlines<br/>Community Sentiments"];
+    B -->|On-chain Data| E["Volume/Market Cap<br/>Distance to ATH"];
     
-    C --> F[Data Aggregator Context];
+    C --> F["Data Aggregator Context"];
     D --> F;
     E --> F;
     
-    F --> G[Anthropic Claude Haiku LLM<br/>claude-haiku-4-5-20251001];
+    F --> G["Anthropic Claude Haiku LLM<br/>claude-haiku-4-5-20251001"];
     
-    G --> H{AI Core Decision};
+    G --> H{"AI Core Decision"};
     
-    H -->|LONG| I[Prepare Bet Parameters];
-    H -->|SHORT| I[Prepare Bet Parameters];
+    H -->|LONG| I["Prepare Bet Parameters"];
+    H -->|SHORT| I["Prepare Bet Parameters"];
     
-    I --> J[Submit to Local Agent Server<br/>OpenWallet Standard Signing];
+    I --> J["Submit to Local Agent Server<br/>OpenWallet Standard Signing"];
     
-    J --> K[Transaction Executed On-chain];
+    J --> K["Transaction Executed On-chain"];
     
-    K --> L[Monitor Active Position<br/>Interval: 2s];
+    K --> L["Monitor Active Position<br/>Interval: 2s"];
     
-    L --> M{Check Price Fluctuations};
-    M -->|PnL >= TP Target| N([Auto-Close as Profit<br/>Save to History]);
-    M -->|PnL <= -SL Target| O([Auto-Close as Loss<br/>Save to History]);
+    L --> M{"Check Price Fluctuations"};
+    M -->|PnL >= TP Target| N(["Auto-Close as Profit<br/>Save to History"]);
+    M -->|PnL <= -SL Target| O(["Auto-Close as Loss<br/>Save to History"]);
 ```
 
 ---
