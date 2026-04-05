@@ -188,8 +188,8 @@ function AppInner() {
         }).filter(Boolean);
 
         toClose.forEach(t => {
-          const label = t.reason === 'TP' ? `[TP] ${t.asset} +${t.tp}% hedefine ulaştı` : `[SL] ${t.asset} -%${t.sl} zararına ulaştı`;
-          addLog(label + ', kapatılıyor', t.reason === 'TP' ? 'success' : 'error');
+          const label = t.reason === 'TP' ? `[TP] ${t.asset} reached +${t.tp}% target` : `[SL] ${t.asset} hit -${t.sl}% stop loss`;
+          addLog(label + ', closing', t.reason === 'TP' ? 'success' : 'error');
           setBetHistory(prev2 => [{
             id: Date.now() + Math.random(),
             asset: t.asset,
@@ -302,7 +302,7 @@ function AppInner() {
         selectedAgents.onchain   ? fetchOnchainProxy(targetAsset)  : Promise.resolve(null),
       ]);
 
-      addLog('veri toplandı, Claude analiz ediyor…', 'info');
+      addLog('data collected, Claude is analyzing…', 'info');
 
       const { decision, confidence, reasoningTech, reasoningSentiment, reasoningOnchain } =
         await analyzeWithClaude({
@@ -322,7 +322,7 @@ function AppInner() {
       const tp = parseFloat(takeProfitPct) || 5;
       const sl = parseFloat(stopLossPct) || 3;
       const fake = `0x${Math.random().toString(16).slice(2, 18)}`;
-      addLog(`karar: ${decision} | güven: ${confidence}% [${fake}]`, 'success');
+      addLog(`decision: ${decision} | confidence: ${confidence}% [${fake}]`, 'success');
 
       setActiveTrades(prev => [{
         id: Date.now(),
@@ -339,7 +339,7 @@ function AppInner() {
       }, ...prev]);
 
     } catch (err) {
-      addLog(`hata: ${err.message}`, 'error');
+      addLog(`error: ${err.message}`, 'error');
     }
 
     setIsProcessing(false);
@@ -354,11 +354,11 @@ function AppInner() {
     const result = await validateApiKey(anthropicKey);
     if (result.valid) {
       setKeyStatus('valid');
-      addLog('Anthropic API key doğrulandı ✓', 'success');
+      addLog('Anthropic API key verified ✓', 'success');
     } else {
       setKeyStatus('invalid');
-      setKeyError(result.error || 'Key doğrulanamadı');
-      addLog(`API key hatası: ${result.error}`, 'error');
+      setKeyError(result.error || 'Key could not be verified');
+      addLog(`API key error: ${result.error}`, 'error');
     }
   };
 
@@ -516,7 +516,7 @@ function AppInner() {
                   <KeyRound size={11} /> Anthropic API Key
                   {keyStatus === 'valid' && (
                     <span style={{ color: '#10b981', marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.2rem', fontSize: '0.65rem', fontWeight: 600 }}>
-                      <CheckCircle2 size={11} /> Doğrulandı
+                      <CheckCircle2 size={11} /> Verified
                     </span>
                   )}
                 </label>

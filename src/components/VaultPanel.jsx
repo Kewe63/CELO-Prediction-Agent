@@ -58,7 +58,7 @@ export function VaultPanel({ onLog }) {
       log(`[Vault] ${label} ✓ ${res?.hash?.slice(0, 12)}…`, 'success');
     } catch (e) {
       setTxStatus('err');
-      log(`[Vault] ${label} hata: ${e.message}`, 'error');
+      log(`[Vault] ${label} error: ${e.message}`, 'error');
     }
   };
 
@@ -113,13 +113,13 @@ export function VaultPanel({ onLog }) {
         <div className="vault-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <CeloLogo size={22} />
-            <span className="vault-title">{isMiniPay ? 'MiniPay' : 'Celo Cüzdan'}</span>
+            <span className="vault-title">{isMiniPay ? 'MiniPay' : 'Celo Wallet'}</span>
           </div>
           {address ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <span className="vault-connected-addr">{shortAddr(address)}</span>
               {isMiniPay && <span className="vault-minipay-badge">MiniPay</span>}
-              <button className="vault-refresh" onClick={handleRefresh} title="Yenile">
+              <button className="vault-refresh" onClick={handleRefresh} title="Refresh">
                 <RefreshCw size={11} />
               </button>
             </div>
@@ -130,7 +130,7 @@ export function VaultPanel({ onLog }) {
               disabled={isConnecting}
               style={{ padding: '0.3rem 0.75rem', fontSize: '0.7rem' }}
             >
-              {isConnecting ? <Loader2 size={12} className="spin" /> : 'Bağlan'}
+              {isConnecting ? <Loader2 size={12} className="spin" /> : 'Connect'}
             </button>
           )}
         </div>
@@ -149,7 +149,7 @@ export function VaultPanel({ onLog }) {
 
         {!address && (
           <p style={{ fontSize: '0.65rem', color: '#334155', marginTop: '0.4rem', textAlign: 'center' }}>
-            İşlem yapmak için cüzdanı bağlayın
+            Connect wallet to transact
           </p>
         )}
       </div>
@@ -176,7 +176,7 @@ export function VaultPanel({ onLog }) {
             <span className="vault-bal-val">{val}</span>
           </div>
         ))}
-        <button className="vault-refresh" onClick={fetchVaultBalances} title="Vault bakiyesini yenile">
+        <button className="vault-refresh" onClick={fetchVaultBalances} title="Refresh vault balances">
           <RefreshCw size={11} />
         </button>
       </div>
@@ -184,7 +184,7 @@ export function VaultPanel({ onLog }) {
       <div className="vault-sep" />
 
       {/* ── Para Yatır ── */}
-      <p className="vault-section-label">Para Yatır</p>
+      <p className="vault-section-label">Deposit</p>
       <div className="vault-row">
         <select className="vault-select" value={depositToken} onChange={e => setDepositToken(e.target.value)}>
           <option value="cUSD">cUSD</option>
@@ -193,7 +193,7 @@ export function VaultPanel({ onLog }) {
         <input
           className="vault-input"
           type="number"
-          placeholder="Miktar"
+          placeholder="Amount"
           value={depositAmount}
           onChange={e => setDepositAmount(e.target.value)}
           min="0"
@@ -204,14 +204,14 @@ export function VaultPanel({ onLog }) {
           className="vault-btn vault-btn-green"
           onClick={handleDeposit}
           disabled={loading || !depositAmount || !address}
-          title={!address ? 'Önce cüzdanı bağlayın' : ''}
+          title={!address ? 'Connect wallet first' : ''}
         >
           {loading ? <Loader2 size={12} className="spin" /> : <ArrowDownToLine size={12} />}
         </button>
       </div>
 
       {/* ── Para Çek ── */}
-      <p className="vault-section-label" style={{ marginTop: '0.4rem' }}>Tamamını Çek</p>
+      <p className="vault-section-label" style={{ marginTop: '0.4rem' }}>Withdraw All</p>
       <div className="vault-row">
         <select className="vault-select" value={withdrawToken} onChange={e => setWithdrawToken(e.target.value)}>
           <option value="cUSD">cUSD</option>
@@ -223,35 +223,35 @@ export function VaultPanel({ onLog }) {
           onClick={handleWithdraw}
           disabled={loading || !address}
         >
-          {loading ? <Loader2 size={12} className="spin" /> : <><ArrowUpFromLine size={12} /> Çek</>}
+          {loading ? <Loader2 size={12} className="spin" /> : <><ArrowUpFromLine size={12} /> Withdraw</>}
         </button>
       </div>
 
       <div className="vault-sep" />
 
       {/* ── Agent Yönetimi ── */}
-      <p className="vault-section-label">Agent Yönetimi</p>
+      <p className="vault-section-label">Agent Management</p>
       <input
         className="vault-input-full"
         type="text"
-        placeholder="0x… agent adresi"
+        placeholder="0x… agent address"
         value={agentInput}
         onChange={e => { setAgentInput(e.target.value); setAgentStatus(null); }}
       />
       <div className="vault-row" style={{ marginTop: '0.35rem' }}>
         <button className="vault-btn vault-btn-green" style={{ flex: 1 }} onClick={handleAddAgent} disabled={loading || !agentInput || !address}>
-          <Plus size={12} /> Ekle
+          <Plus size={12} /> Add
         </button>
         <button className="vault-btn vault-btn-red" style={{ flex: 1 }} onClick={handleRemoveAgent} disabled={loading || !agentInput || !address}>
-          <Trash2 size={12} /> Kaldır
+          <Trash2 size={12} /> Remove
         </button>
-        <button className="vault-btn vault-btn-ghost" onClick={handleCheckAgent} disabled={!agentInput} title="Yetkili mi?">
+        <button className="vault-btn vault-btn-ghost" onClick={handleCheckAgent} disabled={!agentInput} title="Is Authorized?">
           ?
         </button>
       </div>
       {agentStatus !== null && (
         <p style={{ fontSize: '0.62rem', marginTop: '0.3rem', color: agentStatus ? '#10b981' : '#ef4444' }}>
-          {agentStatus ? '✓ Bu adres yetkili agent' : '✗ Bu adres yetkili değil'}
+          {agentStatus ? '✓ This address is an authorized agent' : '✗ This address is not authorized'}
         </p>
       )}
 
@@ -265,21 +265,21 @@ export function VaultPanel({ onLog }) {
           onClick={() => handlePause(!paused)}
           disabled={loading || !address}
         >
-          {paused ? <><ShieldCheck size={12} /> Devam Et</> : <><ShieldOff size={12} /> Swap'ları Durdur</>}
+          {paused ? <><ShieldCheck size={12} /> Unpause</> : <><ShieldOff size={12} /> Pause Swaps</>}
         </button>
       </div>
 
       {/* ── TX Durumu ── */}
       {txStatus === 'pending' && (
-        <p className="vault-tx-status vault-tx-pending"><Loader2 size={11} className="spin" /> İşlem bekleniyor…</p>
+        <p className="vault-tx-status vault-tx-pending"><Loader2 size={11} className="spin" /> Transaction pending…</p>
       )}
       {txStatus === 'ok' && txHash && (
         <p className="vault-tx-status vault-tx-ok">
-          ✓ <a href={`https://celoscan.io/tx/${txHash}`} target="_blank" rel="noreferrer">Celoscan'da gör</a>
+          ✓ <a href={`https://celoscan.io/tx/${txHash}`} target="_blank" rel="noreferrer">View on Celoscan</a>
         </p>
       )}
       {txStatus === 'err' && (
-        <p className="vault-tx-status vault-tx-err">✗ İşlem başarısız</p>
+        <p className="vault-tx-status vault-tx-err">✗ Transaction failed</p>
       )}
     </div>
   );

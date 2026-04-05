@@ -56,7 +56,7 @@ export function useMiniPay() {
   // ── Cüzdana bağlan ──────────────────────────────────────────────────────────
   const connect = useCallback(async () => {
     if (!window?.ethereum) {
-      setError("Ethereum sağlayıcısı bulunamadı.");
+      setError("Ethereum provider not found.");
       return;
     }
 
@@ -91,7 +91,7 @@ export function useMiniPay() {
       // Bakiye çek
       await fetchBalances(userAddress, pc);
     } catch (err) {
-      setError(err.message || "Bağlantı başarısız.");
+      setError(err.message || "Connection failed.");
     } finally {
       setIsConnecting(false);
     }
@@ -120,7 +120,7 @@ export function useMiniPay() {
   const sendTokenTransfer = useCallback(
     async ({ tokenSymbol = "USDm", amount, to }) => {
       if (!walletClient || !publicClient || !address) {
-        throw new Error("Cüzdan bağlı değil.");
+        throw new Error("Wallet not connected.");
       }
 
       const tokenAddress = TOKEN_ADDRESSES[tokenSymbol];
@@ -140,7 +140,7 @@ export function useMiniPay() {
 
       const receipt = await publicClient.waitForTransactionReceipt({ hash });
 
-      if (receipt.status !== "success") throw new Error("İşlem başarısız.");
+      if (receipt.status !== "success") throw new Error("Transaction failed.");
 
       // Bakiyeleri güncelle
       await fetchBalances(address, publicClient);
