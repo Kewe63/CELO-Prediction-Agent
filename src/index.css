@@ -66,16 +66,16 @@ body {
 .logo-icon {
   width: 28px;
   height: 28px;
-  background: linear-gradient(135deg, #63eba7 0%, #0dc9f0 100%);
+  background: linear-gradient(135deg, #fef08a 0%, #eab308 100%);
   border-radius: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 14px rgba(99,235,167,0.3);
+  box-shadow: 0 0 14px rgba(234,179,8,0.4);
   flex-shrink: 0;
 }
 
-.logo-accent { color: #63eba7; }
+.logo-accent { color: #facc15; }
 
 .header-nav {
   display: flex;
