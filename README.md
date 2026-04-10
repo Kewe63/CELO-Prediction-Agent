@@ -4,7 +4,7 @@ An AI-powered crypto prediction dashboard with real-time market analysis, **Clau
 
 ---
 
-## 🌟 Key Features
+## 📜 Key Features
 
 - **Real AI Analysis Engine** 
   - **Technical Agent:** Fetches live CoinGecko OHLC data and calculates RSI(14), MA20, MA50, and identifies active trends.
