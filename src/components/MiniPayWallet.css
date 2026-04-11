@@ -1,11 +1,11 @@
 /* â”€â”€â”€ MiniPay Wallet Component Styles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 .minipay-card {
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(99, 235, 167, 0.25);
+  background: rgba(10, 14, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   padding: 20px;
-  max-width: 360px;
+  box-sizing: border-box;
   width: 100%;
   backdrop-filter: blur(12px);
   box-shadow: 0 0 24px rgba(99, 235, 167, 0.08);
@@ -230,11 +230,11 @@
 
 /* ── Prediction Bet Styles ── */
 .mp-bet-card {
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(99, 235, 167, 0.25);
+  background: rgba(10, 14, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   padding: 20px;
-  max-width: 360px;
+  box-sizing: border-box;
   width: 100%;
   box-shadow: 0 0 24px rgba(99, 235, 167, 0.08);
 }
