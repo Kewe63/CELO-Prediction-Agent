@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { MiniPayProvider, useMiniPayContext } from './context/MiniPayProvider';
 import { VaultPanel } from './components/VaultPanel';
+import { MiniPayWallet } from './components/MiniPayWallet';
+import { MiniPayPredictionBet } from './components/MiniPayPredictionBet';
 import './components/MiniPayWallet.css';
 import { Entropy } from './components/Entropy';
 import {
@@ -642,6 +644,7 @@ function AppInner() {
                   { id: 'terminal', icon: <Terminal size={13} />, label: 'Terminal' },
                   { id: 'workers', icon: <Activity size={13} />, label: 'Workers' },
                   { id: 'vault', icon: <Shield size={13} />, label: 'Vault' },
+                  { id: 'minipay', icon: <Wallet size={13} />, label: 'MiniPay' },
                 ].map(tab => (
                   <button key={tab.id} className={`right-tab-btn ${activeTab === tab.id ? 'active' : ''}`} onClick={() => setActiveTab(tab.id)}>
                     {tab.icon} {tab.label}
@@ -700,6 +703,24 @@ function AppInner() {
               {activeTab === 'vault' && (
                 <div className="tab-scroll">
                   <VaultPanel onLog={addLog} />
+                </div>
+              )}
+
+              {/* MiniPay */}
+              {activeTab === 'minipay' && (
+                <div className="tab-scroll">
+                  <MiniPayPredictionBet
+                    market={{ id: targetAsset, title: `${targetAsset}/USD Price Direction` }}
+                    onSuccess={(data) => {
+                      addLog(`MiniPay Prediction Bet Placed: ${data.amount} USDm | Hash: ${data.hash?.slice(0,8)}...`, 'success');
+                    }}
+                  />
+                  <div style={{ marginTop: '1rem' }} />
+                  <MiniPayWallet
+                    onPayment={(data) => {
+                      addLog(`MiniPay Transfer: ${data.amount} ${data.token} to ${data.to?.slice(0,6)}...`, 'info');
+                    }}
+                  />
                 </div>
               )}
             </div>

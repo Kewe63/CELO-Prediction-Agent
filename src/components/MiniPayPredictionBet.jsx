@@ -26,9 +26,9 @@ export function MiniPayPredictionBet({ market, onSuccess }) {
   if (!address) {
     return (
       <div className="mp-bet-connect">
-        <p>Tahmin yapmak için cüzdanınızı bağlayın.</p>
+        <p>Connect your wallet to make a prediction.</p>
         <button className="mp-btn-primary" onClick={connect}>
-          Cüzdanı Bağla
+          Connect Wallet
         </button>
       </div>
     );
@@ -89,19 +89,19 @@ export function MiniPayPredictionBet({ market, onSuccess }) {
           className={`mp-outcome-btn yes ${outcome === "YES" ? "active" : ""}`}
           onClick={() => setOutcome("YES")}
         >
-          ✅ EVET
+          ✅ YES
         </button>
         <button
           className={`mp-outcome-btn no ${outcome === "NO" ? "active" : ""}`}
           onClick={() => setOutcome("NO")}
         >
-          ❌ HAYIR
+          ❌ NO
         </button>
       </div>
 
       {/* Miktar */}
       <div className="mp-bet-amount-row">
-        <label className="mp-label">Miktar (USDm)</label>
+        <label className="mp-label">Amount (USDm)</label>
         <div className="mp-presets">
           {PRESETS.map((p) => (
             <button
@@ -118,23 +118,23 @@ export function MiniPayPredictionBet({ market, onSuccess }) {
           className="mp-amount-input"
           min="0.01"
           step="0.01"
-          placeholder="Özel miktar"
+          placeholder="Custom amount"
           value={amount}
           onChange={(e) => { setAmount(e.target.value); setEstimatedFee(null); }}
         />
         <span className="mp-balance-hint">
-          Bakiye: <b>{balances.USDm} USDm</b>
+          Balance: <b>{balances.USDm} USDm</b>
           {isMiniPay && " · MiniPay ✓"}
         </span>
         {insufficient && (
-          <span className="mp-error-hint">⚠ Yetersiz bakiye</span>
+          <span className="mp-error-hint">⚠ Insufficient balance</span>
         )}
       </div>
 
       {/* Gas tahmini */}
       {estimatedFee !== null && (
         <p className="mp-fee-hint">
-          Tahmini ağ ücreti: ~{estimatedFee} USDm
+          Estimated network fee: ~{estimatedFee} USDm
         </p>
       )}
 
@@ -145,28 +145,28 @@ export function MiniPayPredictionBet({ market, onSuccess }) {
           onClick={handleEstimate}
           disabled={!amount || !outcome || status !== "idle"}
         >
-          Ücreti Hesapla
+          Estimate Fee
         </button>
         <button
           className="mp-btn-primary"
           onClick={handleBet}
           disabled={!amount || !outcome || insufficient || status === "pending"}
         >
-          {status === "pending" ? "Gönderiliyor…" : `${outcome || "Seç"} → Yatır`}
+          {status === "pending" ? "Sending…" : `${outcome || "Select"} → Predict`}
         </button>
       </div>
 
       {/* Durum */}
       {status === "success" && txHash && (
         <p className="mp-tx-success">
-          🎉 Tahmin kaydedildi!{" "}
+          🎉 Prediction recorded!{" "}
           <a href={`https://celoscan.io/tx/${txHash}`} target="_blank" rel="noreferrer">
-            Celoscan'da gör ↗
+            View on Celoscan ↗
           </a>
         </p>
       )}
       {status === "error" && (
-        <p className="mp-error">❌ İşlem reddedildi veya başarısız oldu.</p>
+        <p className="mp-error">❌ Transaction rejected or failed.</p>
       )}
     </div>
   );

@@ -1,4 +1,4 @@
-/* ─── MiniPay Wallet Component Styles ───────────────────────────────────────── */
+/* â”€â”€â”€ MiniPay Wallet Component Styles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 .minipay-card {
   background: rgba(15, 23, 42, 0.85);
@@ -17,7 +17,7 @@
   padding: 32px 24px;
 }
 
-/* ── Logo ──────────────────────────────────────────────────────────────────── */
+/* â”€â”€ Logo â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .mp-logo {
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@
   color: #63eba7;
 }
 
-/* ── Header ────────────────────────────────────────────────────────────────── */
+/* â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .mp-header {
   display: flex;
   justify-content: space-between;
@@ -52,7 +52,7 @@
   font-weight: 600;
 }
 
-/* ── Balances ──────────────────────────────────────────────────────────────── */
+/* â”€â”€ Balances â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .mp-balances {
   display: flex;
   gap: 8px;
@@ -101,7 +101,7 @@
   color: #63eba7;
 }
 
-/* ── Pay Form ──────────────────────────────────────────────────────────────── */
+/* â”€â”€ Pay Form â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .mp-pay-form {
   display: flex;
   flex-direction: column;
@@ -161,7 +161,7 @@
   box-shadow: 0 0 0 3px rgba(99, 235, 167, 0.06);
 }
 
-/* ── Buttons ───────────────────────────────────────────────────────────────── */
+/* â”€â”€ Buttons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .mp-btn-primary {
   background: linear-gradient(135deg, #63eba7, #35d07f);
   color: #0f172a;
@@ -185,7 +185,7 @@
   cursor: not-allowed;
 }
 
-/* ── Status messages ───────────────────────────────────────────────────────── */
+/* â”€â”€ Status messages â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .mp-tx-success {
   font-size: 0.72rem;
   color: #63eba7;
@@ -227,3 +227,51 @@
     padding: 16px;
   }
 }
+
+/* ── Prediction Bet Styles ── */
+.mp-bet-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(99, 235, 167, 0.25);
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 360px;
+  width: 100%;
+  box-shadow: 0 0 24px rgba(99, 235, 167, 0.08);
+}
+.mp-bet-connect { text-align: center; padding: 20px; }
+.mp-bet-market { margin-bottom: 12px; }
+.mp-bet-market-label { font-size: 0.65rem; color: #64748b; }
+.mp-bet-market-title { font-weight: bold; color: #e2e8f0; font-size: 0.8rem; margin-left: 6px; }
+
+.mp-bet-outcomes { display: flex; gap: 8px; margin-bottom: 16px; }
+.mp-outcome-btn {
+  flex: 1; padding: 8px; border-radius: 8px;
+  background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+  color: #94a3b8; cursor: pointer; transition: 0.2s;
+}
+.mp-outcome-btn.active.yes { background: rgba(16, 185, 129, 0.2); border-color: #10b981; color: #10b981; }
+.mp-outcome-btn.active.no { background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #ef4444; }
+
+.mp-bet-amount-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.mp-label { font-size: 0.72rem; color: #94a3b8; }
+.mp-presets { display: flex; gap: 6px; margin-bottom: 6px; }
+.mp-preset {
+  flex: 1; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px; padding: 4px; color: #cbd5e1; font-size: 0.7rem; cursor: pointer;
+}
+.mp-preset.active { background: rgba(99, 235, 167, 0.2); border-color: #63eba7; color: #63eba7; }
+
+.mp-amount-input {
+  background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 8px 10px; color: #e2e8f0; width: 100%; box-sizing: border-box;
+}
+.mp-balance-hint { font-size: 0.65rem; color: #64748b; text-align: right; }
+.mp-error-hint { font-size: 0.65rem; color: #ef4444; text-align: right; }
+.mp-fee-hint { font-size: 0.65rem; color: #94a3b8; margin-bottom: 12px; }
+
+.mp-bet-actions { display: flex; gap: 8px; }
+.mp-btn-secondary {
+  flex: 1; padding: 8px; background: rgba(255,255,255,0.1); border: none;
+  border-radius: 8px; color: #fff; font-size: 0.7rem; font-weight: bold; cursor: pointer;
+}
+.mp-btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }

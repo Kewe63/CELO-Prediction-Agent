@@ -70,8 +70,7 @@ export function MiniPayWallet({ onPayment }) {
           <span>MiniPay</span>
         </div>
         <p className="mp-desc">
-          Prediction Agent'a katılmak ve tahminlerinize stablecoin yatırmak için
-          MiniPay cüzdanınızı bağlayın.
+          Connect your MiniPay wallet to join Prediction Agent and deposit stablecoins for your predictions.
         </p>
         {error && <p className="mp-error">{error}</p>}
         <button
@@ -79,10 +78,10 @@ export function MiniPayWallet({ onPayment }) {
           onClick={connect}
           disabled={isConnecting}
         >
-          {isConnecting ? "Bağlanıyor…" : "Cüzdanı Bağla"}
+          {isConnecting ? "Connecting…" : "Connect Wallet"}
         </button>
         <p className="mp-hint">
-          MiniPay yoksa{" "}
+          If you don't have MiniPay, download for{" "}
           <a
             href="https://play.google.com/store/apps/details?id=com.opera.minipay"
             target="_blank"
@@ -90,15 +89,14 @@ export function MiniPayWallet({ onPayment }) {
           >
             Android
           </a>{" "}
-          veya{" "}
+          or{" "}
           <a
             href="https://apps.apple.com/app/minipay-easy-global-wallet/id6504087257"
             target="_blank"
             rel="noreferrer"
           >
             iOS
-          </a>{" "}
-          için indirin.
+          </a>.
         </p>
       </div>
     );
@@ -111,7 +109,7 @@ export function MiniPayWallet({ onPayment }) {
       <div className="mp-header">
         <div className="mp-logo">
           <CeloLogo size={24} />
-          <span>{isMiniPay ? "MiniPay" : "Celo Cüzdan"}</span>
+          <span>{isMiniPay ? "MiniPay" : "Celo Wallet"}</span>
         </div>
         <div className="mp-address" title={address}>
           {shortAddr(address)}
@@ -127,14 +125,14 @@ export function MiniPayWallet({ onPayment }) {
             <span className="mp-token-amount">{bal}</span>
           </div>
         ))}
-        <button className="mp-refresh" onClick={fetchBalances} title="Yenile">
+        <button className="mp-refresh" onClick={fetchBalances} title="Refresh">
           ↻
         </button>
       </div>
 
       {/* Ödeme formu */}
       <form className="mp-pay-form" onSubmit={handlePay}>
-        <h4>Tahmin Yatır</h4>
+        <h4>Deposit for Prediction</h4>
 
         <label>
           Token
@@ -149,12 +147,12 @@ export function MiniPayWallet({ onPayment }) {
         </label>
 
         <label>
-          Miktar
+          Amount
           <input
             type="number"
             min="0.01"
             step="0.01"
-            placeholder="örn. 1.00"
+            placeholder="e.g. 1.00"
             value={payAmount}
             onChange={(e) => setPayAmount(e.target.value)}
             required
@@ -162,7 +160,7 @@ export function MiniPayWallet({ onPayment }) {
         </label>
 
         <label>
-          Alıcı Adres
+          Recipient Address
           <input
             type="text"
             placeholder="0x…"
@@ -177,25 +175,25 @@ export function MiniPayWallet({ onPayment }) {
           className="mp-btn-primary"
           disabled={txStatus === "pending"}
         >
-          {txStatus === "pending" ? "Gönderiliyor…" : "Gönder"}
+          {txStatus === "pending" ? "Sending…" : "Send"}
         </button>
       </form>
 
       {/* İşlem durumu */}
       {txStatus === "success" && txHash && (
         <p className="mp-tx-success">
-          ✅ Başarılı!{" "}
+          ✅ Success!{" "}
           <a
             href={`https://celoscan.io/tx/${txHash}`}
             target="_blank"
             rel="noreferrer"
           >
-            Celoscan'da gör
+            View on Celoscan
           </a>
         </p>
       )}
       {txStatus === "error" && (
-        <p className="mp-error">❌ İşlem başarısız. Tekrar deneyin.</p>
+        <p className="mp-error">❌ Transaction failed. Try again.</p>
       )}
     </div>
   );
