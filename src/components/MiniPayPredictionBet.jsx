@@ -6,7 +6,7 @@
  */
 
 import { useState } from "react";
-import { useMiniPay } from "../hooks/useMiniPay";
+import { useMiniPayContext } from "../context/MiniPayProvider";
 
 // Tahmin market sözleşme adresi (deploy ettikten sonra güncelleyin)
 const PREDICTION_CONTRACT = import.meta.env.VITE_PREDICTION_CONTRACT || "0x0000000000000000000000000000000000000000";
@@ -15,7 +15,7 @@ const PRESETS = [1, 5, 10, 25]; // USD cinsinden hızlı seçenekler
 
 export function MiniPayPredictionBet({ market, onSuccess }) {
   const { address, isMiniPay, balances, sendTokenTransfer, estimateFee, connect } =
-    useMiniPay();
+    useMiniPayContext();
 
   const [outcome, setOutcome] = useState(null); // "YES" | "NO"
   const [amount, setAmount] = useState("");

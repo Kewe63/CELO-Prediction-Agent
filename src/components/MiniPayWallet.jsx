@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useMiniPay } from "../hooks/useMiniPay";
+import { useMiniPayContext } from "../context/MiniPayProvider";
 
 function CeloLogo({ size = 28 }) {
   return (
@@ -30,7 +30,7 @@ export function MiniPayWallet({ onPayment }) {
     connect,
     sendTokenTransfer,
     fetchBalances,
-  } = useMiniPay();
+  } = useMiniPayContext();
 
   const [payAmount, setPayAmount] = useState("");
   const [payTo, setPayTo] = useState("");
