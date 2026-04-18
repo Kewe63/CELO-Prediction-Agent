@@ -109,11 +109,11 @@ export function MiniPayWallet({ onPayment }) {
       <div className="mp-header">
         <div className="mp-logo">
           <CeloLogo size={24} />
-          <span>{isMiniPay ? "MiniPay" : "Celo Wallet"}</span>
+          <span>MiniPay (Celo)</span>
         </div>
         <div className="mp-address" title={address}>
           {shortAddr(address)}
-          {isMiniPay && <span className="mp-badge">MiniPay ✓</span>}
+          <span className="mp-badge">MiniPay ✓</span>
         </div>
       </div>
 

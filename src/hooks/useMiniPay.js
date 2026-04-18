@@ -64,7 +64,7 @@ export function useMiniPay() {
     setError(null);
 
     try {
-      const miniPay = Boolean(window.ethereum.isMiniPay);
+      const miniPay = window.ethereum.isMiniPay !== undefined ? Boolean(window.ethereum.isMiniPay) : true;
       setIsMiniPay(miniPay);
 
       const accounts = await window.ethereum.request({
