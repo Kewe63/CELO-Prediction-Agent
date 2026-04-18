@@ -970,7 +970,7 @@ function MiniPayHeaderStatus() {
       <span className="status-dot" style={{ background: '#475569' }} />
       <Wallet size={13} color="#475569" />
       <button className="connect-btn" onClick={connect} disabled={isConnecting}>
-        {isConnecting ? 'Connecting…' : 'Connect Wallet'}
+        {isConnecting ? 'Connecting…' : 'MiniPay Login'}
       </button>
     </div>
   );

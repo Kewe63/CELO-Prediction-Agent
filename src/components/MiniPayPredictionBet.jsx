@@ -28,7 +28,7 @@ export function MiniPayPredictionBet({ market, onSuccess }) {
       <div className="mp-bet-connect">
         <p>Connect your wallet to make a prediction.</p>
         <button className="mp-btn-primary" onClick={connect}>
-          Connect Wallet
+          MiniPay Login
         </button>
       </div>
     );

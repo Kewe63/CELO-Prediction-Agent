@@ -179,11 +179,9 @@ export function useMiniPay() {
     [publicClient, address]
   );
 
-  // ── MiniPay ortamında otomatik bağlan ───────────────────────────────────────
+  // ── Otomatik bağlan ───────────────────────────────────────
   useEffect(() => {
-    if (window?.ethereum?.isMiniPay) {
-      connect();
-    }
+    connect();
   }, [connect]);
 
   return {

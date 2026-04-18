@@ -78,7 +78,7 @@ export function MiniPayWallet({ onPayment }) {
           onClick={connect}
           disabled={isConnecting}
         >
-          {isConnecting ? "Connecting…" : "Connect Wallet"}
+          {isConnecting ? "Connecting…" : "MiniPay Login"}
         </button>
         <p className="mp-hint">
           If you don't have MiniPay, download for{" "}
